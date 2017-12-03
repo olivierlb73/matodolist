@@ -1,3 +1,11 @@
 <h1>{{ titre }}</h1>
 
-<p>Ajouter ici vos tâches</p>
+<ul>
+     {% for task in tasks %}
+        <li><a href="/delete/{{ loop.index - 1 }}"><img src="delete.png" style="max-width:16px;margin-right:20px;"/></a>{{ task }}</li>
+    {% endfor %}
+</ul>
+
+<form action="/add/" method="post">
+Nouvelle tâche : <input name="task" type="text" value="Nouvelle tâche"/><input id="add" type="submit"value="Ajouter"/>
+</form>
