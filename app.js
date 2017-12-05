@@ -1,6 +1,5 @@
 var express = require('express');
 var morgan = require('morgan'); // Charge le middleware de logging
-var favicon = require('serve-favicon'); // Charge le middleware de favicon
 var bodyParser = require('body-parser'); // Charge le middleware permettant de parser les requêtes
 var cookieSession = require('cookie-session') // Charge le middleware qui gère la session utilisateur dans un cookie
 
@@ -14,9 +13,6 @@ app.use(morgan('combined'))
 
 // Indique que le dossier /public contient des fichiers statiques (middleware chargé de base)
 .use(express.static(__dirname + '/public'))
-
-// Active la favicon indiquée
-.use(favicon(__dirname + '/public/favicon.ico'))
 
 // Création du cookie qui contiendra les informations de session
 .use(cookieSession({
